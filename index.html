@@ -3,186 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KICK IT HUB</title>
+  <title>KICK IT HUB - Add to Cart</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    /* Header */
-    header {
-      background-color: #222;
-      color: white;
-      padding: 15px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      cursor: pointer;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #ff6600;
-    }
-
-    /* Hero Banner */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1528701800489-9a1d12a7b57e?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-
-    /* Products Section */
-    .products {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product-info {
-      padding: 15px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .product-info h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      color: #222;
-    }
-
-    .product-info .price {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #ff6600;
-      margin-bottom: 15px;
-    }
-
-    .product-info button {
-      background-color: #ff6600;
-      border: none;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .product-info button:hover {
-      background-color: #e65500;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-
-    /* Responsive */
-    @media(max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .hero {
-        font-size: 1.8rem;
-        height: 250px;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #222; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #ff6600; }
+    .cart { background: #ff6600; padding: 5px 10px; border-radius: 5px; }
+    .hero { background: #000 url('https://images.unsplash.com/photo-1528701800489-9a1d12a7b57e?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; height: 300px; display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem; text-shadow: 0 0 10px rgba(0,0,0,0.7); }
+    .products { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .product-card { background: white; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); overflow: hidden; display: flex; flex-direction: column; }
+    .product-card img { width: 100%; height: 200px; object-fit: cover; }
+    .product-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .product-info h3 { margin-bottom: 10px; }
+    .product-info .price { font-weight: bold; color: #ff6600; margin-bottom: 10px; }
+    .product-info button { background: #ff6600; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+    .product-info button:hover { background: #e65500; }
+    footer { background: #222; color: white; text-align: center; padding: 15px 0; margin-top: 40px; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">KickitHub</div>
+  <div class="logo" onclick="scrollToTop()">KickitHub</div>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Men</a></li>
-      <li><a href="#">Women</a></li>
-      <li><a href="#">Kids</a></li>
-      <li><a href="#">Accessories</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#men">Men</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#kids">Kids</a></li>
+      <li><span class="cart">🛒 Cart: <span id="cart-count">0</span></span></li>
     </ul>
   </nav>
 </header>
 
-<section class="hero">
-  Step Up Your Shoe 
+<section id="home" class="hero">
+  Step Up Your Shoe Game
 </section>
 
-<section class="products">
+<section class="products" id="men">
   <div class="product-card">
-    <img src=https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f6105318-3c83-4836-ab5b-96f2cd95de00/AIR+ZOOM+PEGASUS+41.png alt="Running Shoe">
+    <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f6105318-3c83-4836-ab5b-96f2cd95de00/AIR+ZOOM+PEGASUS+41.png" alt="Running Shoe">
     <div class="product-info">
       <h3>Men's Running Shoe</h3>
       <div class="price">₱3,500</div>
-      <button onclick="alert('Added Men\'s Running Shoe to cart!')">Buy Now</button>
+      <button onclick="addToCart('Men\'s Running Shoe', 3500)">Add to Cart</button>
     </div>
   </div>
 
@@ -191,25 +59,16 @@
     <div class="product-info">
       <h3>Women's Sneakers</h3>
       <div class="price">₱4,200</div>
-      <button onclick="alert('Added Women\'s Sneakers to cart!')">Buy Now</button>
+      <button onclick="addToCart('Women\'s Sneakers', 4200)">Add to Cart</button>
     </div>
   </div>
 
   <div class="product-card">
-    <img src=https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2024/OCTOBER/15/PhXN8d3j_843c7ffc5e664423b2f58317ddde1a82.jpg alt="Kids' Shoes">
+    <img src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2024/OCTOBER/15/PhXN8d3j_843c7ffc5e664423b2f58317ddde1a82.jpg" alt="Kids' Shoes">
     <div class="product-info">
       <h3>Kids' Casual Shoes</h3>
       <div class="price">₱2,000</div>
-      <button onclick="alert('Added Kids\' Casual Shoes to cart!')">Buy Now</button>
-    </div>
-  </div>
-
-  <div class="product-card">
-    <img src= https://images-cdn.ubuy.co.in/633ff2629bd8bf18cd2f46d5-black-oxford-shoes-for-men-comfort.jpg alt="Formal Shoe">
-    <div class="product-info">
-      <h3>Men's Formal Shoe</h3>
-      <div class="price">₱5,000</div>
-      <button onclick="alert('Added Men\'s Formal Shoe to cart!')">Buy Now</button>
+      <button onclick="addToCart('Kids\' Casual Shoes', 2000)">Add to Cart</button>
     </div>
   </div>
 </section>
@@ -217,6 +76,20 @@
 <footer>
   &copy; 2025 Kickithub. All rights reserved.
 </footer>
+
+<script>
+  let cartCount = 0;
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function addToCart(itemName, price) {
+    cartCount++;
+    document.getElementById('cart-count').textContent = cartCount;
+    alert(`🛒 Added "${itemName}" to your cart!\nPrice: ₱${price.toLocaleString()}`);
+  }
+</script>
 
 </body>
 </html>
