@@ -1,68 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shoe Store</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #222;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff6600;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1528701800489-9a1d12a7b57e?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    /* Products Section */
+    .products {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .product-info .price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff6600;
+      margin-bottom: 15px;
+    }
+
+    .product-info button {
+      background-color: #ff6600;
+      border: none;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product-info button:hover {
+      background-color: #e65500;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero {
+        font-size: 1.8rem;
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#men">Men</a></li>
-        <li><a href="#women">Women</a></li>
-        <li><a href="#kids">Kids</a></li>
-        <li><a href="#accessories">Accessories</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="cart">
-      <a href="#cart">🛒 Cart</a>
-    </div>
-  </header>
 
-  <!-- Main Banner -->
-  <section id="home">
-    <img src="banner.jpg" alt="Featured Products">
-  </section>
+<header>
+  <div class="logo">ShoeStore</div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">Kids</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- Product Categories -->
-  <section id="categories">
-    <h2>Shop by Category</h2>
-    <div class="category">
-      <h3>Men's Footwear</h3>
-      <a href="#men">Shop Now</a>
-    </div>
-    <div class="category">
-      <h3>Women's Footwear</h3>
-      <a href="#women">Shop Now</a>
-    </div>
-    <div class="category">
-      <h3>Kids' Footwear</h3>
-      <a href="#kids">Shop Now</a>
-    </div>
-  </section>
+<section class="hero">
+  Step Up Your Shoe Game
+</section>
 
-  <!-- Featured Products -->
-  <section id="featured">
-    <h2>Featured Products</h2>
-    <div class="product">
-      <img src="shoe1.jpg" alt="Shoe 1">
-      <p>Product Name</p>
-      <p>₱Price</p>
-      <button>Add to Cart</button>
+<section class="products">
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1600185368252-7aa9763029ed?auto=format&fit=crop&w=600&q=80" alt="Running Shoe">
+    <div class="product-info">
+      <h3>Men's Running Shoe</h3>
+      <div class="price">₱3,500</div>
+      <button onclick="alert('Added Men\'s Running Shoe to cart!')">Buy Now</button>
     </div>
-    <!-- Repeat for other products -->
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Shoe Store</p>
-    <p><a href="#contact">Contact Us</a></p>
-  </footer>
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Women's Sneakers">
+    <div class="product-info">
+      <h3>Women's Sneakers</h3>
+      <div class="price">₱4,200</div>
+      <button onclick="alert('Added Women\'s Sneakers to cart!')">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1519741497293-0ca59752cbb1?auto=format&fit=crop&w=600&q=80" alt="Kids' Shoes">
+    <div class="product-info">
+      <h3>Kids' Casual Shoes</h3>
+      <div class="price">₱2,000</div>
+      <button onclick="alert('Added Kids\' Casual Shoes to cart!')">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Formal Shoe">
+    <div class="product-info">
+      <h3>Men's Formal Shoe</h3>
+      <div class="price">₱5,000</div>
+      <button onclick="alert('Added Men\'s Formal Shoe to cart!')">Buy Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 ShoeStore. All rights reserved.
+</footer>
+
 </body>
 </html>
 
